@@ -22,6 +22,6 @@ namespace Animal_Armageddon
         public NewGameWindow()
         {
             InitializeComponent();
-        }
-    }
+        }      
+    }          
 }

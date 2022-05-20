@@ -6,10 +6,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Animal_Armageddon"
         xmlns:vms="clr-namespace:Animal_Armageddon.ViewModels"
+        xmlns:helpers="clr-namespace:Animal_Armageddon.Helpers"
         mc:Ignorable="d"
-        Title="NewGameWindow" 
+        Title="Animal Armageddon" 
         WindowState="Maximized"
-    WindowStyle="None" d:DesignWidth="1044.212" d:DesignHeight="494.878">
+    WindowStyle="None" d:DesignWidth="1200" d:DesignHeight="900">
+
+    <Window.Resources>
+        <helpers:StringToColorConverter x:Key="stringToColorConverter"/>
+    </Window.Resources>
     <Window.DataContext>
         <vms:NewGameWindowViewModel />
     </Window.DataContext>
@@ -17,56 +22,46 @@
         <ImageBrush ImageSource="/textures/back.png" Stretch="Fill"/>
     </Window.Background>
     <StackPanel>
-        <Grid>
+        <Grid Height="77">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Back to Main Menu"  Height="25" Width="120"
+            <Button Grid.Column="0" Content="Back to Main Menu"  Height="77" Width="120"
                 HorizontalContentAlignment="Center" HorizontalAlignment="Left"
                     Command="{Binding BackToMainMenuCommand}"
                     CommandParameter="{Binding ElementName=newGameWindow}"/>
-            <Button Grid.Column="1" Content="Start Game"  Height="25" Width="120"
-                HorizontalContentAlignment="Center" HorizontalAlignment="Right"/>
+            <Button Grid.Column="1" Content="Start Game"  Height="77" Width="120"
+                HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="402,0,0,0"
+                    Command="{Binding StartGameCommand}"
+                    CommandParameter="{Binding ElementName=newGameWindow}"/>
         </Grid>
 
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
+          
+            <StackPanel>
+                <ItemsControl Name="skin1" ItemsSource="{Binding Player1.SelectedSkin}"/>
                 <WrapPanel HorizontalAlignment="Center">
-                    <Button Content="&lt;" Width="30" FontSize="20"  Margin="10"
-                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    <Label Content="Actual skin" Margin=" 15" Foreground="Blue"/>
-                    <Button Content="&gt;" Width="30" FontSize="20"  Margin="10"
-                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Button Content="&lt;" Width="30" FontSize="20"  Margin="10" x:Name="p1Left"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                            Command="{Binding ChangeSkinCommand}"
+                            CommandParameter="{Binding ElementName=p1Left}"/>
+                    <Label Content="{Binding Player1.SelectedSkin.Name}" MinWidth="150" Margin=" 15" 
+                           VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                           Foreground="{Binding Player1.SelectedSkin.Color, Converter={StaticResource stringToColorConverter}}"/>
+                    <Button Content="&gt;" Width="30" FontSize="20"  Margin="10" x:Name="p1Right"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                             Command="{Binding ChangeSkinCommand}"
+                            CommandParameter="{Binding ElementName=p1Right}"/>
                 </WrapPanel>
-                <Image Source="/textures/testPlayer.png" />
-                <Label Content="Player Name" FontSize="20" Foreground="OrangeRed" FontWeight="Bold"
-                   Margin="35"
-                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="65"/>
-                <Button Content="Remove Player" Height="25"/>
+                <Image Source="{Binding Player1.SelectedSkin.Root}" Height="415"/>
+                <TextBox Text="{Binding Path=Player1.Name, Mode=TwoWay}" FontSize="20"  FontWeight="Bold" x:Name="p1TextBox"
+                   Margin="35" Foreground="{Binding Player1.SelectedSkin.Color, Converter={StaticResource stringToColorConverter}}"
+                         Background="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="65">
+                </TextBox>
+
             </StackPanel>
-            <StackPanel Grid.Column="1">
-                <WrapPanel HorizontalAlignment="Center">
-                    <Button Content="&lt;" Width="30" FontSize="20"  Margin="10"
-                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    <Label Content="Actual skin" Margin=" 15"/>
-                    <Button Content="&gt;" Width="30" FontSize="20"  Margin="10"
-                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                </WrapPanel>
-                <Image Source="/textures/testPlayer.png"/>
-                <Label Content="Player Name" FontSize="20" Foreground="OrangeRed" FontWeight="Bold"
-                   Margin="35"
-                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="65"/>
-                <Button Content="Remove Player" Height="25"/>
-            </StackPanel>
-            <Button Grid.Column="2" Content="Add new Player" FontSize="20"/>
-            <Button Grid.Column="3" Content="Add new Player" FontSize="20"/>
+           
         </Grid>
     </StackPanel>
 </Window>

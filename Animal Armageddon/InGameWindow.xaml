@@ -1,0 +1,21 @@
+﻿<Window x:Class="Animal_Armageddon.InGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Animal_Armageddon"        
+        xmlns:logicDisplay="clr-namespace:Animal_Armageddon.Logic.GameLogic"
+        xmlns:vms="clr-namespace:Animal_Armageddon.ViewModels"
+        xmlns:helpers="clr-namespace:Animal_Armageddon.Helpers"        
+        mc:Ignorable="d"
+        Title="Animal Armageddon" 
+        WindowState="Maximized"
+    WindowStyle="None" d:DesignWidth="1200" d:DesignHeight="900" KeyDown="Window_KeyDown">
+    <Grid x:Name="grid">
+        <logicDisplay:Display x:Name="display" />
+        <ProgressBar x:Name="bosshp" Foreground="DarkRed" Maximum="10000" HorizontalAlignment="Right" Height="28" Margin="0,10,50,0" HorizontalContentAlignment="Right" VerticalAlignment="Top" Width="266"/>
+        <Label Content="Icon of Sin" Foreground="DarkRed" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Height="58" Margin="0,50,50,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="266"/>
+        <ProgressBar x:Name="playerhp" Maximum="1000" HorizontalAlignment="Left" Height="28" Margin="50,10,0,0" HorizontalContentAlignment="Left" VerticalAlignment="Top" Width="266"/>
+        <Label x:Name="playername" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" Height="58" Margin="50,50,0,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="266"/>
+    </Grid>
+</Window>

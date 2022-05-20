@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="MainWindow"
         WindowState="Maximized"
-     d:DesignWidth="800" d:DesignHeight="450">
+     d:DesignWidth="1200" d:DesignHeight="700">
     <Window.DataContext>
         <vms:MainWindowViewModel />
     </Window.DataContext>
@@ -20,12 +20,12 @@
         <StackPanel>
             <Label Content="Animal Armageddon" Margin="30" FontSize="40" Foreground="OrangeRed" FontWeight="Bold"
                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Button Content="New Game" FontSize="15" Foreground="OrangeRed" FontWeight="Bold" 
-                    Height="50" Width="200"  Margin="40" Padding="10"
+            <Button Content="New Game" FontSize="40" Foreground="OrangeRed" FontWeight="Bold" 
+                    Height="103" Width="270"  Margin="40" Padding="10"
                     Command="{Binding NewGameCommand}"                    
                     Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
-            <Button Content="Exit To Desktop" FontSize="15" Foreground="OrangeRed" FontWeight="Bold"
-                    Height="50" Width="200"  Margin="-40" Padding="10"
+            <Button Content="Exit To Desktop" FontSize="40" Foreground="OrangeRed" FontWeight="Bold"
+                    Height="103" Width="374" Padding="10"
                     Command="{Binding ExitGameCommand}"                     
                     Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
         </StackPanel>

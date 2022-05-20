@@ -1,4 +1,5 @@
 ﻿using Animal_Armageddon.Logic;
+using Animal_Armageddon.Logic.GameLogic;
 using Animal_Armageddon.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
@@ -24,7 +25,8 @@ namespace Animal_Armageddon
                           new ServiceCollection()
                               .AddSingleton<IMainWindowLogic, MainWindowLogic>()
                               .AddSingleton<INewGameWindowLogic, NewGameWindowLogic>()
-                              .AddSingleton<INewGameWindowService, NewGameWindowService>()                              
+                              .AddSingleton<INewGameWindowService, NewGameWindowService>()                                         
+                              .AddSingleton<IInGameWindowOpenerService, InGameWindowOpenerService>()                              
                               .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
                               .BuildServiceProvider()
                           );

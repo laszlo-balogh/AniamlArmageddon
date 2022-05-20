@@ -10,6 +10,7 @@ namespace Animal_Armageddon.Helpers
 {
     public static class Util
     {
+        public static Random rnd = new Random();
         public static bool IsInDesignMode
         {
             get
