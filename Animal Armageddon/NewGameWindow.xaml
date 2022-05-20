@@ -1,0 +1,72 @@
+﻿<Window x:Class="Animal_Armageddon.NewGameWindow"
+        x:Name="newGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Animal_Armageddon"
+        xmlns:vms="clr-namespace:Animal_Armageddon.ViewModels"
+        mc:Ignorable="d"
+        Title="NewGameWindow" 
+        WindowState="Maximized"
+    WindowStyle="None" d:DesignWidth="1044.212" d:DesignHeight="494.878">
+    <Window.DataContext>
+        <vms:NewGameWindowViewModel />
+    </Window.DataContext>
+    <Window.Background>
+        <ImageBrush ImageSource="/textures/back.png" Stretch="Fill"/>
+    </Window.Background>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Back to Main Menu"  Height="25" Width="120"
+                HorizontalContentAlignment="Center" HorizontalAlignment="Left"
+                    Command="{Binding BackToMainMenuCommand}"
+                    CommandParameter="{Binding ElementName=newGameWindow}"/>
+            <Button Grid.Column="1" Content="Start Game"  Height="25" Width="120"
+                HorizontalContentAlignment="Center" HorizontalAlignment="Right"/>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <WrapPanel HorizontalAlignment="Center">
+                    <Button Content="&lt;" Width="30" FontSize="20"  Margin="10"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="Actual skin" Margin=" 15" Foreground="Blue"/>
+                    <Button Content="&gt;" Width="30" FontSize="20"  Margin="10"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </WrapPanel>
+                <Image Source="/textures/testPlayer.png" />
+                <Label Content="Player Name" FontSize="20" Foreground="OrangeRed" FontWeight="Bold"
+                   Margin="35"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="65"/>
+                <Button Content="Remove Player" Height="25"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <WrapPanel HorizontalAlignment="Center">
+                    <Button Content="&lt;" Width="30" FontSize="20"  Margin="10"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="Actual skin" Margin=" 15"/>
+                    <Button Content="&gt;" Width="30" FontSize="20"  Margin="10"
+                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </WrapPanel>
+                <Image Source="/textures/testPlayer.png"/>
+                <Label Content="Player Name" FontSize="20" Foreground="OrangeRed" FontWeight="Bold"
+                   Margin="35"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="65"/>
+                <Button Content="Remove Player" Height="25"/>
+            </StackPanel>
+            <Button Grid.Column="2" Content="Add new Player" FontSize="20"/>
+            <Button Grid.Column="3" Content="Add new Player" FontSize="20"/>
+        </Grid>
+    </StackPanel>
+</Window>

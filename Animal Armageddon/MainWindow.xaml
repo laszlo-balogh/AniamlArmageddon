@@ -1,0 +1,33 @@
+﻿<Window x:Class="Animal_Armageddon.MainWindow"
+        x:Name="mainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Animal_Armageddon"        
+        xmlns:vms="clr-namespace:Animal_Armageddon.ViewModels"        
+        mc:Ignorable="d"
+        Title="MainWindow"
+        WindowState="Maximized"
+     d:DesignWidth="800" d:DesignHeight="450">
+    <Window.DataContext>
+        <vms:MainWindowViewModel />
+    </Window.DataContext>
+    <Window.Background>
+        <ImageBrush ImageSource="/textures/back.png" Stretch="Fill"/>
+    </Window.Background>
+    <Grid>
+        <StackPanel>
+            <Label Content="Animal Armageddon" Margin="30" FontSize="40" Foreground="OrangeRed" FontWeight="Bold"
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Button Content="New Game" FontSize="15" Foreground="OrangeRed" FontWeight="Bold" 
+                    Height="50" Width="200"  Margin="40" Padding="10"
+                    Command="{Binding NewGameCommand}"                    
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+            <Button Content="Exit To Desktop" FontSize="15" Foreground="OrangeRed" FontWeight="Bold"
+                    Height="50" Width="200"  Margin="-40" Padding="10"
+                    Command="{Binding ExitGameCommand}"                     
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"/>
+        </StackPanel>
+    </Grid>
+</Window>
